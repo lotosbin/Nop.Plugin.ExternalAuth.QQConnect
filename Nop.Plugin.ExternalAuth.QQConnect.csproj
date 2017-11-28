@@ -145,6 +145,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="DONATE.md" />
     <None Include="packages.config" />
     <Content Include="Views\ExternalAuthQQConnect\Configure.cshtml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -155,6 +156,7 @@
     <Content Include="web.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Images\Connect_logo_1.png">
