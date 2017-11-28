@@ -60,21 +60,21 @@ namespace Nop.Plugin.ExternalAuth.QQConnect.Core
 
         private void ParseClaims(AuthenticationResult authenticationResult, OAuthAuthenticationParameters parameters)
         {
-            UserClaims userClaims = new UserClaims();
-            NameClaims nameClaims = new NameClaims();
-            userClaims.Name = nameClaims;
-            ContactClaims contactClaims = new ContactClaims();
-            string str1 = $"{authenticationResult.ProviderUserId}@qq.com";
-            contactClaims.Email = str1;
-            userClaims.Contact = contactClaims;
-            UserClaims claim = userClaims;
+            UserClaims userClaims = new UserClaims
+            {
+                Name = new NameClaims(),
+                Contact = new ContactClaims
+                {
+                    Email = $"{authenticationResult.ProviderUserId}@qq.com"
+                }
+            };
             if (authenticationResult.ExtraData.ContainsKey("name"))
             {
-                string str2 = authenticationResult.ExtraData["name"];
-                if (!string.IsNullOrEmpty(str2))
-                    claim.Name.Nickname = str2;
+                string name = authenticationResult.ExtraData["name"];
+                if (!string.IsNullOrEmpty(name))
+                    userClaims.Name.Nickname = name;
             }
-            parameters.AddClaim(claim);
+            parameters.AddClaim(userClaims);
         }
 
         private AuthorizeState RequestAuthentication()

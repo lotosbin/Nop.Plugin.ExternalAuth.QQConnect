@@ -1,0 +1,13 @@
+﻿.qqconnect-btn {
+    display: inline-block;
+    width: 150px;
+    height: 23px;
+    background-image: url('images/Connect_logo_3.png');
+    background-repeat: no-repeat;
+}
+.qqconnect-btn:hover {
+    background-position: 0px -24px;
+}
+.qqconnect-btn:active {
+    background-position: 0px -48px;
+}
