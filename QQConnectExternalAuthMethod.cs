@@ -2,51 +2,35 @@
 using Nop.Services.Authentication.External;
 using Nop.Services.Configuration;
 using Nop.Services.Localization;
-using System.Web.Routing;
+using Microsoft.AspNetCore.Routing;
+using Nop.Core;
 
 namespace Nop.Plugin.ExternalAuth.QQConnect
 {
     public class QQConnectExternalAuthMethod : BasePlugin, IExternalAuthenticationMethod, IPlugin
     {
         private readonly ISettingService _settingService;
+        private IWebHelper _webHelper;
 
-        public QQConnectExternalAuthMethod(ISettingService settingService)
+        public QQConnectExternalAuthMethod(ISettingService settingService, IWebHelper webHelper)
         {
             this._settingService = settingService;
+            _webHelper = webHelper;
         }
 
-        public void GetConfigurationRoute(out string actionName, out string controllerName, out RouteValueDictionary routeValues)
+
+        /// <summary>
+        /// Gets a configuration page URL
+        /// </summary>
+        public override string GetConfigurationPageUrl()
         {
-            actionName = "Configure";
-            controllerName = "ExternalAuthQQConnect";
-            routeValues = new RouteValueDictionary()
-            {
-                {
-                    "Namespaces",
-                    "Nop.Plugin.ExternalAuth.QQConnect.Controllers"
-                },
-                {
-                    "area",
-                    null
-                }
-            };
+            return $"{_webHelper.GetStoreLocation()}Admin/QQConnectAuthentication/Configure";
+
         }
 
-        public void GetPublicInfoRoute(out string actionName, out string controllerName, out RouteValueDictionary routeValues)
+        public void GetPublicViewComponent(out string viewComponentName)
         {
-            actionName = "PublicInfo";
-            controllerName = "ExternalAuthQQConnect";
-            routeValues = new RouteValueDictionary()
-            {
-                {
-                    "Namespaces",
-                    "Nop.Plugin.ExternalAuth.QQConnect.Controllers"
-                },
-                {
-                    "area",
-                    null
-                }
-            };
+            viewComponentName = "QQConnectAuthentication";
         }
 
         public virtual void Install()

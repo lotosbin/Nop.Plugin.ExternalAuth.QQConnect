@@ -1,0 +1,46 @@
+﻿@model Nop.Plugin.ExternalAuth.QQConnect.Models.ConfigurationModel
+@{
+    Layout = "_ConfigurePlugin";
+}
+<form asp-controller="QQConnectAuthentication" asp-action="Configure" method="post">
+    <div class="form-group">
+        <div class="col-md-3">
+            <nop-label asp-for="CallbackUrl" />
+        </div>
+        <div class="col-md-9">
+            <nop-editor asp-for="CallbackUrl" />
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-12">
+            <a href="http://connect.qq.com/" target="_blank">打开QQ互联</a>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-3">
+            <nop-label asp-for="ClientKeyIdentifier" />
+        </div>
+        <div class="col-md-9">
+            <nop-editor asp-disabled="true" asp-for="ClientKeyIdentifier" />
+            <span asp-validation-for="ClientKeyIdentifier"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-3">
+            <nop-label asp-for="ClientSecret" />
+        </div>
+        <div class="col-md-9">
+            <nop-editor asp-for="ClientSecret" />
+            <span asp-validation-for="ClientSecret"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-9 col-md-offset-3">
+            <input type="submit" name="save" class="btn bg-primary" value="@T("Admin.Common.Save")" />
+        </div>
+    </div>
+    <br />
+    <a href="https://github.com/lotosbin/Nop.Plugin.ExternalAuth.QQConnect/" target="_blank">Project Url</a>
+    <br />
+    <a href="https://github.com/lotosbin/Nop.Plugin.ExternalAuth.QQConnect/issues" target="_blank">Issues</a>
+</form>

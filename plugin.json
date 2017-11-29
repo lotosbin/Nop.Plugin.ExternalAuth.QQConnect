@@ -1,0 +1,11 @@
+﻿{
+    "Group": "ExternalAuth methods",
+    "FriendlyName": "QQConnect authentication",
+    "SystemName": "ExternalAuth.QQConnect",
+    "Version": "4.0.0",
+    "SupportedVersions": [ "4.00" ],
+    "Author": "nopCommerce team",
+    "DisplayOrder": 5,
+    "FileName": "Nop.Plugin.ExternalAuth.QQConnect.dll",
+    "Description": "This plugin enables QQConnect authentication (login using QQConnect account)"
+}

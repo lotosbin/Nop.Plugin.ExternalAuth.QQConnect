@@ -9,6 +9,6 @@
         @T("Plugins.ExternalAuth.QQConnect.Login")
     </div>
     <div class="buttons">
-        <a href="@Url.RouteUrl("Plugin.ExternalAuth.QQConnect.Login", new { ReturnUrl = HttpContext.Current.Request.QueryString["ReturnUrl"] })" class="qqconnect-btn"></a>
-    </div>
+        <a asp-controller="qqconnectauthentication" asp-action="login" asp-route-returnurl="@Context.Request.Query["ReturnUrl"]" class="qqconnect-btn"></a> 
+  </div>
 </div>
